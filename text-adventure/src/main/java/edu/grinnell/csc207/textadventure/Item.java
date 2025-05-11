@@ -1,0 +1,22 @@
+package edu.grinnell.csc207.textadventure;
+
+/**
+ * Represents an item in the text adventure game.
+ */
+public class Item {
+    private String name;
+    private String description;
+
+    public Item(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+}

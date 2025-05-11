@@ -1,5 +1,18 @@
 package edu.grinnell.csc207.textadventure;
+import java.util.Map;
 
-public class Room {
+public abstract class Room {
+    protected Map<String, Room> exits;
+    protected String description;
+
+    public void setExit(String direction, Room room) {
+        exits.put(direction, room);
+    }
     
+    public Room getExit(String direction) {
+        return exits.get(direction);
+    }
+
+    public abstract void enter();
+    public abstract String handleCommand(Command cmd, Player player);
 }
