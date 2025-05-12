@@ -47,7 +47,7 @@ public class TextAdventure {
         rooms.put("Elevator", elevator);
         rooms.put("Noyce", noyce);
         rooms.put("Classroom", classroom);
-        
+
         player = new Player(rooms.get("Dorm"));
 
         System.out.println();

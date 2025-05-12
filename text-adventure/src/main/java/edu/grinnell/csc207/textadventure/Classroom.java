@@ -1,7 +1,7 @@
 package edu.grinnell.csc207.textadventure;
 
 /**
- * the Classroom class 
+ * the Classroom class
  */
 public class Classroom extends Room {
 
@@ -22,10 +22,10 @@ public class Classroom extends Room {
 
     /**
      * Handles the command given by the player.
-     * 
-     * @param cmd  the command to handle.
-     * @param player  the player who issued the command.
-     * @return  message indicating the result of the command.
+     *
+     * @param cmd the command to handle.
+     * @param player the player who issued the command.
+     * @return message indicating the result of the command.
      */
     @Override
     public String handleCommand(Command cmd, Player player) {

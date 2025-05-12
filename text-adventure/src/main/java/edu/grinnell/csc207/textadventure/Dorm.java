@@ -31,18 +31,18 @@ public class Dorm extends Room {
 
     /**
      * Handles the command given by the player.
-     * 
-     * @param cmd  the command to handle.
-     * @param player  the player who issued the command.
-     * @return  message indicating the result of the command.
+     *
+     * @param cmd the command to handle.
+     * @param player the player who issued the command.
+     * @return message indicating the result of the command.
      */
     @Override
     public String handleCommand(Command cmd, Player player) {
         switch (cmd.getAction()) {
             case "pick":
                 if (cmd.getTarget().contains("hair tie") && !tookHairTie) {
-                    Item tie = new Item("hair tie", 
-                                        "Keeps your hair out of your face in wind.");
+                    Item tie = new Item("hair tie",
+                            "Keeps your hair out of your face in wind.");
                     player.addItem(tie);
                     tookHairTie = true;
                     return "You pick up the hair tie and slip it on your wrist.";

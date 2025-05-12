@@ -4,6 +4,7 @@ package edu.grinnell.csc207.textadventure;
  * the Command class
  */
 public class Command {
+
     private String action;
     private String target;
 

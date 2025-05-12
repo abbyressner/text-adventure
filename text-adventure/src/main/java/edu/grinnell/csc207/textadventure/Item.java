@@ -4,6 +4,7 @@ package edu.grinnell.csc207.textadventure;
  * the Item class
  */
 public class Item {
+
     private String name;
     private String description;
 

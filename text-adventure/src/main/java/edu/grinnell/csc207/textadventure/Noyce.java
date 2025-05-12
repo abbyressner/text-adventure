@@ -1,11 +1,10 @@
 package edu.grinnell.csc207.textadventure;
 
-
-
 /**
  * the Noyce class
  */
 public class Noyce extends Room {
+
     private boolean hasConfronted = false;
     private boolean hasIgnored = false;
     private boolean canProceed = false;
