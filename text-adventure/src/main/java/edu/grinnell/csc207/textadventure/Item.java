@@ -1,7 +1,7 @@
 package edu.grinnell.csc207.textadventure;
 
 /**
- * Represents an item in the text adventure game.
+ * the Item class
  */
 public class Item {
     private String name;

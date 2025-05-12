@@ -1,5 +1,8 @@
 package edu.grinnell.csc207.textadventure;
 
+/**
+ * the Parser class
+ */
 public class Parser {
 
     /**

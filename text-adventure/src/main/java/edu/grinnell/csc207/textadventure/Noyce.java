@@ -1,12 +1,17 @@
 package edu.grinnell.csc207.textadventure;
 
+
+
+/**
+ * the Noyce class
+ */
 public class Noyce extends Room {
     private boolean hasConfronted = false;
     private boolean hasIgnored = false;
     private boolean canProceed = false;
 
     public Noyce() {
-        this.description = "You enter Noyce Science Center. The scent of whiteboards and stress hangs in the air.";
+        this.description = "You enter Noyce.";
     }
 
     @Override
@@ -14,7 +19,9 @@ public class Noyce extends Room {
         System.out.println(description);
 
         if (!hasConfronted && !hasIgnored) {
-            System.out.println("Up ahead, you spot your lab partner from last week—the one who totally ghosted you on the project.");
+            System.out.println("Up ahead, you see your lab partner from last week...");
+            System.out.println("You remember that he ghosted you, and that you had");
+            System.out.println("to finish the lab by yourself!");
             System.out.println("Will you 'confront' him or just 'ignore' and move on?");
         } else if (canProceed) {
             System.out.println("The hallway is clear now. You can go 'up' to take the elevator.");
@@ -28,14 +35,14 @@ public class Noyce extends Room {
                 if (!hasConfronted && !hasIgnored) {
                     hasConfronted = true;
                     canProceed = true;
-                    return "'Hey, about last week—' you start. He mumbles an apology and scurries off. You feel a bit better.";
+                    return "'Hey, why didn't you-' you start. He shrieks and runs away. \n You feel good about how that just went.";
                 }
                 return "You already dealt with that.";
             case "ignore":
                 if (!hasConfronted && !hasIgnored) {
                     hasIgnored = true;
                     canProceed = true;
-                    return "You sigh, look away, and keep walking. Some people just aren't worth the drama.";
+                    return "You sigh, look away, and keep walking. Some people just aren't worth the trouble.";
                 }
                 return "You already made your choice.";
             case "go":
@@ -43,7 +50,7 @@ public class Noyce extends Room {
                     Room next = exits.get("up");
                     if (next != null) {
                         player.moveTo(next);
-                        return "You walk past the encounter zone and head for the elevator.";
+                        return "You keep walking and head for the elevator.";
                     }
                     return "There's no way up from here.";
                 }

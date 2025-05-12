@@ -2,6 +2,9 @@ package edu.grinnell.csc207.textadventure;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * the Room abstract class represents rooms in the text adventure game.
+ */
 public abstract class Room {
     protected Map<String, Room> exits;
     protected String description;

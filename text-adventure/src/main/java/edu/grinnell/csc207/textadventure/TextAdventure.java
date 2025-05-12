@@ -4,11 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-
 /**
  * Driver class for a text adventure game.
  */
 public class TextAdventure {
+
+    public static final String C = "\u001B[38;5;147m";
+    public static final String R = "\u001B[0m";
+    public static final String B = "\u001B[1m";
+
     private Player player;
     private Parser parser;
     private Map<String, Room> rooms;
@@ -25,39 +29,6 @@ public class TextAdventure {
     public void run() {
         Scanner scanner = new Scanner(System.in);
         parser = new Parser();
-        setupRooms();
-        player = new Player(rooms.get("Dorm"));
-
-        System.out.println("* * * * * * * * * * * * * * * * * * * * * *");
-        System.out.println("*    Welcome to Abby's Adventure Game!    *");
-        System.out.println("* * * * * * * * * * * * * * * * * * * * * *");
-        System.out.println("*                                         *");
-        System.out.println("*   Your goal is to make it to class");
-        System.out.println("*   on time. Sounds pretty easy, right?");
-        System.out.println("*   Well, it's not always that simple.");
-        System.out.println("*   I know that because the obstacles");
-        System.out.println("*   you are about to face are based on");
-        System.out.println("*   my real-life experiences!");
-        System.out.println("*                                         *");
-        System.out.println("*   Good luck! :)");
-        System.out.println("*    \u2014 Abby");
-        System.out.println("*                                         *");
-
-
-        while (!player.hasWon() && !player.hasLost()) {
-            player.getCurrentRoom().enter();
-            System.out.print("> ");
-            String input = scanner.nextLine();
-            Command cmd = parser.parse(input);
-            String result = player.getCurrentRoom().handleCommand(cmd, player);
-            System.out.println(result);
-            
-        }
-
-        System.out.println(player.hasWon() ? "You made it to class!" : "You’re late. Game over.");
-    }
-
-    private void setupRooms() {
         rooms = new HashMap<>();
 
         Room dorm = new Dorm();
@@ -66,15 +37,53 @@ public class TextAdventure {
         Room noyce = new Noyce();
         Room classroom = new Classroom();
 
-        dorm.setExit("north", outside);
-        outside.setExit("north", noyce);
+        dorm.setExit("forward", outside);
+        outside.setExit("forward", noyce);
         noyce.setExit("up", elevator);
-        elevator.setExit("north", classroom);
+        elevator.setExit("forward", classroom);
 
         rooms.put("Dorm", dorm);
         rooms.put("Outside", outside);
         rooms.put("Elevator", elevator);
         rooms.put("Noyce", noyce);
         rooms.put("Classroom", classroom);
+        
+        player = new Player(rooms.get("Dorm"));
+
+        System.out.println();
+        System.out.println();
+        System.out.println(C + "* * * * * * * * * * * * * * * * * * * * * *" + R);
+        System.out.println(C + "*" + R + B + "    Welcome to Abby's Adventure Game!    " + R + C + "*");
+        System.out.println(C + "* * * * * * * * * * * * * * * * * * * * * *" + R);
+        System.out.println(C + "*" + R + "                                         " + C + "*");
+        System.out.println(C + "*" + R + "   Your goal is to make it to class      " + C + "*");
+        System.out.println(C + "*" + R + "   on time. Sounds pretty easy, right?   " + C + "*");
+        System.out.println(C + "*" + R + "   Well, it's not always that simple.    " + C + "*");
+        System.out.println(C + "*" + R + "   I know that because the obstacles     " + C + "*");
+        System.out.println(C + "*" + R + "   you are about to face are based on    " + C + "*");
+        System.out.println(C + "*" + R + "   my real-life experiences!             " + C + "*");
+        System.out.println(C + "*" + R + "                                         " + C + "*");
+        System.out.println(C + "*" + R + "   Good luck! :)                         " + C + "*");
+        System.out.println(C + "*" + R + "    — Abby                               " + C + "*");
+        System.out.println(C + "*" + R + "                                         " + C + "*");
+        System.out.println(C + "* * * * * * * * * * * * * * * * * * * * * *" + R);
+        System.out.println();
+
+        while (!player.hasWon() && !player.hasLost()) {
+            player.getCurrentRoom().enter();
+            System.out.print("> ");
+            String input = scanner.nextLine();
+            Command cmd = parser.parse(input);
+            String result = player.getCurrentRoom().handleCommand(cmd, player);
+            System.out.println(result);
+        }
+
+        if (player.hasWon()) {
+            System.out.println("You made it to class!");
+        } else if (player.hasLost()) {
+            System.out.println("You're late. Game over.");
+        }
+        System.out.println();
+        scanner.close();
     }
 }

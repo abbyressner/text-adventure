@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * the Player class
+ */
 public class Player {
 
     private Room currentRoom;

@@ -1,6 +1,10 @@
 package edu.grinnell.csc207.textadventure;
 
+/* 
+ * the Elevator class
+ */
 public class Elevator extends Room {
+
     private int smellLevel = 0;
     private boolean doorOpen = false;
 
@@ -14,7 +18,7 @@ public class Elevator extends Room {
         if (!doorOpen) {
             System.out.println("The elevator doors slowly close.");
         } else {
-            System.out.println("The elevator doors are open to the north.");
+            System.out.println("The elevator doors are open. You may go forward.");
         }
     }
 
@@ -35,11 +39,11 @@ public class Elevator extends Room {
                 }
                 return "That doesn't help right now.";
             case "go":
-                if (!doorOpen && cmd.getTarget().equals("north")) {
+                if (!doorOpen && cmd.getTarget().equals("forward")) {
                     doorOpen = true;
-                    return "The elevator reaches your floor. The door opens to the north.";
-                } else if (doorOpen && cmd.getTarget().equals("north")) {
-                    Room next = exits.get("north");
+                    return "The elevator reaches your floor. The door opens. You may go forward.";
+                } else if (doorOpen && cmd.getTarget().equals("forward")) {
+                    Room next = exits.get("forward");
                     if (next != null) {
                         player.moveTo(next);
                         return "You rush out of the elevator.";
