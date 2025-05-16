@@ -45,8 +45,8 @@ public class Noyce extends Room {
                 }
                 return "You already made your choice.";
             case "go":
-                if (cmd.getTarget().equals("up") && canProceed) {
-                    Room next = exits.get("up");
+                if (cmd.getTarget().equals("forward") && canProceed) {
+                    Room next = exits.get("forward");
                     if (next != null) {
                         player.moveTo(next);
                         return "You keep walking and head for the elevator.";

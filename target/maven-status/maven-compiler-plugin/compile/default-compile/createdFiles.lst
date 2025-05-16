@@ -1,0 +1,12 @@
+edu/grinnell/csc207/textadventure/Dorm.class
+edu/grinnell/csc207/textadventure/Command.class
+edu/grinnell/csc207/textadventure/Parser.class
+edu/grinnell/csc207/textadventure/Player.class
+edu/grinnell/csc207/textadventure/Noyce.class
+edu/grinnell/csc207/textadventure/Outside.class
+edu/grinnell/csc207/textadventure/TextAdventure.class
+edu/grinnell/csc207/textadventure/Classroom.class
+edu/grinnell/csc207/textadventure/Room.class
+edu/grinnell/csc207/textadventure/Elevator.class
+edu/grinnell/csc207/textadventure/Item.class
+edu/grinnell/csc207/textadventure/Inventory.class

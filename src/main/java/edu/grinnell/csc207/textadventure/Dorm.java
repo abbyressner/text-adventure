@@ -6,6 +6,7 @@ package edu.grinnell.csc207.textadventure;
 public class Dorm extends Room {
 
     private boolean tookHairTie = false;
+    private boolean tookMints = false;
     private boolean didReading = false;
     private boolean readyToLeave = false;
     private boolean left = false;
@@ -21,9 +22,11 @@ public class Dorm extends Room {
     public void enter() {
         if (!left) {
             System.out.println(description);
-            System.out.println("On your desk: a hair tie and your reading for class.");
-            System.out.println("\"$#@%, I forgot to do the reading\", you say to yourself.");
-            System.out.println("Type 'pick up hair tie' or 'read' before you 'go forward' to leave.");
+            System.out.println("On your desk: a hair tie, a pack of mints, and your reading for class.");
+            if (!didReading) {
+                System.out.println("\"$#@%, I forgot to do the reading\", you say to yourself.");
+            }
+            System.out.println("Type 'pick up hair tie', 'pick up mints', or 'read' before you 'go forward' to leave.");
         } else {
             System.out.println("You're no longer in the dorm.");
         }
@@ -46,6 +49,14 @@ public class Dorm extends Room {
                     player.addItem(tie);
                     tookHairTie = true;
                     return "You pick up the hair tie and slip it on your wrist.";
+                }
+                if (cmd.getTarget().contains("mints") && !tookMints) {
+                    Item mints 
+                        = new Item("mints",
+                            "A pack of mints (that'll be more helpful than you think).");
+                    player.addItem(mints);
+                    tookMints = true;
+                    return "You pick up the mints and put it in your bag.";
                 }
                 return "There's nothing like that here.";
             case "read":

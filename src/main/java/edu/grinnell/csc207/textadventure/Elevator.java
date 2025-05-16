@@ -15,8 +15,9 @@ public class Elevator extends Room {
     @Override
     public void enter() {
         System.out.println(description);
+        System.out.println("(Tip: If you have mints, try 'use mints' to ease the smell.)");
         if (!doorOpen) {
-            System.out.println("The elevator doors slowly close.");
+            System.out.println("The elevator doors slowly close. The smell intensifies.");
         } else {
             System.out.println("The elevator doors are open. You may go forward.");
         }

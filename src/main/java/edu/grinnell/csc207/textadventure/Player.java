@@ -33,7 +33,12 @@ public class Player {
     }
 
     public boolean hasItem(String name) {
-        return inventory.stream().anyMatch(i -> i.getName().equalsIgnoreCase(name));
+        for (Item item : inventory) {
+            if (item.getName().equalsIgnoreCase(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void setWon(boolean won) {
