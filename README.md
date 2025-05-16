@@ -8,7 +8,7 @@
 
 ### Changes made
 
-
+* added mints functionality to Dorm.java
 
 ## Resources
 
