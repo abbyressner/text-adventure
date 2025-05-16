@@ -2,6 +2,14 @@
 
 **Author:** Abigail (Abby) Ressner
 
+### Grader comments
+
+"Great job! Everything looked good (hey, reading questions were ocassionally correct!). However, I got stuck in the elevator because I couldn't use a mint to lower the smellLevel! It looks like there isn't a way to get "mints" in the game as the only occurrences of "mints" in the project seem to be in the elevator where you need them. If you can add some way to get mints so the game can run to completion, you'd be good!"
+
+### Changes made
+
+
+
 ## Resources
 
 *   Java 21.0.6  
